@@ -1,4 +1,4 @@
-package com.christian.dialer
+package com.android.dialer
 
 import org.junit.Test
 

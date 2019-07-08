@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':phonecommon', ':contactscommon', ':incallui', ':libphonenumber', ':androidcommon', ':vcard'
