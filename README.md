@@ -10,5 +10,5 @@ This is the system native Android dialer. The project code is all copied from An
 ![screenshot](https://github.com/lanhuaguizha/Dialer/blob/master/device-2019-07-09-112606.png)
 
 # Conclusion
-If you want to use out-of-the-box UI components, the Christian project is a high-quality, non-BUG production version. All UI components are packaged on the Christian project's library module. Each package is a full-featured library.
-如果想使用即开即用的UI组件，基督徒项目是高质量无BUG的生产版本，全部UI组件均在Christian项目的library Module上以包划分，每个包都是一个功能完整库。
+If you want to use out-of-the-box UI components, the Christian project is a high-quality, non-BUG production version. All UI components are packaged on the Christian project's library module, and each package is a complete subset of features. Later, like the parallaxbacklayout Model, you can pull out such a full-featured library to upload Maven or Jcenter.
+如果想使用即开即用的UI组件，基督徒项目是高质量无BUG的生产版本，全部UI组件均在Christian项目的library Module上以包划分，每个包都是一个功能完整子集。后期会像parallaxbacklayout Model一样抽成这样的功能完整库上传Maven或Jcenter。
