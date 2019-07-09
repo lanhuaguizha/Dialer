@@ -15,12 +15,10 @@
  */
 package com.android.dialer.filterednumber;
 
-import androidx.core.app.Fragment;
-import androidx.core.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
 import com.android.dialer.R;
 import com.android.dialer.list.BlockedListSearchFragment;
 import com.android.dialer.list.SearchFragment;

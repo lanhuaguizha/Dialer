@@ -21,25 +21,19 @@ import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.provider.ContactsContract.Contacts;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import com.android.dialer.R;
-import com.android.dialer.database.FilteredNumberContract;
 import com.android.dialer.filterednumber.FilteredNumbersUtil.ImportSendToVoicemailContactsListener;
 
 public class ViewNumbersToImportFragment extends ListFragment
         implements LoaderManager.LoaderCallbacks<Cursor>,
-                View.OnClickListener {
+        View.OnClickListener {
 
     private ViewNumbersToImportAdapter mAdapter;
 

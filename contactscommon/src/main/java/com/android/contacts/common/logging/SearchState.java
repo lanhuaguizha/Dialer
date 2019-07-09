@@ -17,30 +17,41 @@ package com.android.contacts.common.logging;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 
 /**
  * Describes the results of a user search for a particular contact.
  */
 public final class SearchState implements Parcelable {
 
-    /** The length of the query string input by the user. */
+    /**
+     * The length of the query string input by the user.
+     */
     public int queryLength;
 
-    /** The number of partitions (groups of results) presented to the user. */
+    /**
+     * The number of partitions (groups of results) presented to the user.
+     */
     public int numPartitions;
 
-    /** The total number of results (across all partitions) presented to the user. */
+    /**
+     * The total number of results (across all partitions) presented to the user.
+     */
     public int numResults;
 
-    /** The number of results presented to the user in the partition that was selected. */
+    /**
+     * The number of results presented to the user in the partition that was selected.
+     */
     public int numResultsInSelectedPartition = -1;
 
-    /** The zero-based index of the partition in which the clicked query result resides. */
+    /**
+     * The zero-based index of the partition in which the clicked query result resides.
+     */
     public int selectedPartition = -1;
 
-    /** The index of the clicked query result within its partition. */
+    /**
+     * The index of the clicked query result within its partition.
+     */
     public int selectedIndexInPartition = -1;
 
     /**
@@ -70,7 +81,7 @@ public final class SearchState implements Parcelable {
 
     @Override
     public String toString() {
-        return Objects.toStringHelper(this)
+        return MoreObjects.toStringHelper(this)
                 .add("queryLength", queryLength)
                 .add("numPartitions", numPartitions)
                 .add("numResults", numResults)

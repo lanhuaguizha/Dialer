@@ -22,15 +22,14 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Trace;
 import android.preference.PreferenceManager;
-import android.support.v13.app.FragmentPagerAdapter;
-import androidx.core.view.ViewPager;
-import androidx.core.view.ViewPager.OnPageChangeListener;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.legacy.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import com.android.contacts.common.list.ViewPagerTabs;
 import com.android.dialer.DialtactsActivity;
 import com.android.dialer.R;
@@ -93,8 +92,8 @@ public class ListsFragment extends Fragment
     private boolean mShowVoicemailTabAfterVoicemailStatusIsFetched;
 
     private VoicemailStatusHelper mVoicemailStatusHelper;
-    private ArrayList<OnPageChangeListener> mOnPageChangeListeners =
-            new ArrayList<OnPageChangeListener>();
+    private ArrayList<ViewPager.OnPageChangeListener> mOnPageChangeListeners =
+            new ArrayList<ViewPager.OnPageChangeListener>();
 
     private String[] mTabTitles;
     private int[] mTabIcons;
@@ -258,7 +257,7 @@ public class ListsFragment extends Fragment
         return parentView;
     }
 
-    public void addOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
+    public void addOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
         if (!mOnPageChangeListeners.contains(onPageChangeListener)) {
             mOnPageChangeListeners.add(onPageChangeListener);
         }

@@ -16,6 +16,7 @@
 
 package com.android.dialer;
 
+import androidx.annotation.Nullable;
 import com.android.contacts.common.ContactsUtils.UserType;
 import com.android.contacts.common.preference.ContactsPreferences;
 import com.android.contacts.common.util.ContactDisplayUtils;
@@ -25,7 +26,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.provider.CallLog.Calls;
-import android.support.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
 
@@ -163,7 +163,7 @@ public class PhoneCallDetails {
      * @return The description of the account that this call has been placed on.
      */
     public static CharSequence createAccountLabelDescription(Resources resources,
-            @Nullable String viaNumber, @Nullable CharSequence accountLabel) {
+                                                             @Nullable String viaNumber, @Nullable CharSequence accountLabel) {
 
         if((!TextUtils.isEmpty(viaNumber)) && !TextUtils.isEmpty(accountLabel)) {
             String msg = resources.getString(R.string.description_via_number_phone_account,

@@ -16,6 +16,7 @@
 
 package com.android.dialer.calllog;
 
+import androidx.recyclerview.widget.RecyclerView;
 import com.google.common.annotations.VisibleForTesting;
 
 import android.content.Context;
@@ -29,8 +30,9 @@ import android.os.Trace;
 import android.preference.PreferenceManager;
 import android.provider.CallLog;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+//import android.support.v7.widget.RecyclerView;
+//import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
@@ -400,7 +402,7 @@ public class CallLogAdapter extends GroupingListAdapter
      * @param parent the parent view.
      * @return The {@link ViewHolder}.
      */
-    private ViewHolder createCallLogEntryViewHolder(ViewGroup parent) {
+    private RecyclerView.ViewHolder createCallLogEntryViewHolder(ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.call_log_list_item, parent, false);
         CallLogListItemViewHolder viewHolder = CallLogListItemViewHolder.create(

@@ -17,8 +17,6 @@ package com.android.dialer.list;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.PhoneNumberUtils;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -30,6 +28,8 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import com.android.contacts.common.GeoUtil;
 import com.android.contacts.common.list.ContactEntryListAdapter;
 import com.android.contacts.common.util.ContactDisplayUtils;

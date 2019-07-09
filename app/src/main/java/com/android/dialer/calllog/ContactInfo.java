@@ -18,10 +18,9 @@ package com.android.dialer.calllog;
 
 import android.net.Uri;
 import android.text.TextUtils;
-
 import com.android.contacts.common.ContactsUtils.UserType;
 import com.android.contacts.common.util.UriUtils;
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 
 /**
  * Information for a contact as needed by the Call Log.
@@ -50,13 +49,18 @@ public class ContactInfo {
      * PhoneNumberUtils.formatNumberToE164.
      */
     public String normalizedNumber;
-    /** The photo for the contact, if available. */
+    /**
+     * The photo for the contact, if available.
+     */
     public long photoId;
-    /** The high-res photo for the contact, if available. */
+    /**
+     * The high-res photo for the contact, if available.
+     */
     public Uri photoUri;
     public boolean isBadData;
     public String objectId;
-    public @UserType long userType;
+    public @UserType
+    long userType;
 
     public static ContactInfo EMPTY = new ContactInfo();
 
@@ -97,12 +101,12 @@ public class ContactInfo {
 
     @Override
     public String toString() {
-        return Objects.toStringHelper(this).add("lookupUri", lookupUri).add("name", name)
+        return MoreObjects.toStringHelper(this).add("lookupUri", lookupUri).add("name", name)
                 .add("nameAlternative", nameAlternative)
                 .add("type", type).add("label", label)
-                .add("number", number).add("formattedNumber",formattedNumber)
+                .add("number", number).add("formattedNumber", formattedNumber)
                 .add("normalizedNumber", normalizedNumber).add("photoId", photoId)
                 .add("photoUri", photoUri).add("objectId", objectId)
-                .add("userType",userType).toString();
+                .add("userType", userType).toString();
     }
 }

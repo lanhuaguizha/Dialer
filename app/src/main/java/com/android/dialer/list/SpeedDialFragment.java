@@ -15,8 +15,6 @@
  */
 package com.android.dialer.list;
 
-import static android.Manifest.permission.READ_CONTACTS;
-
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -31,7 +29,6 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Trace;
-import android.support.v13.app.FragmentCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,11 +39,10 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.ListView;
-
+import androidx.legacy.app.FragmentCompat;
 import com.android.contacts.common.ContactPhotoManager;
 import com.android.contacts.common.ContactTileLoaderFactory;
 import com.android.contacts.common.list.ContactTileView;
@@ -58,6 +54,8 @@ import com.android.incallui.Call.LogState;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * This fragment displays the user's favorite/frequent contacts in a grid.
@@ -90,6 +88,7 @@ public class SpeedDialFragment extends Fragment implements OnItemClickListener,
 
     public interface HostInterface {
         public void setDragDropController(DragDropController controller);
+
         public void showAllContactsTab();
     }
 
@@ -139,10 +138,10 @@ public class SpeedDialFragment extends Fragment implements OnItemClickListener,
     private class ScrollListener implements ListView.OnScrollListener {
         @Override
         public void onScroll(AbsListView view,
-                int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                             int firstVisibleItem, int visibleItemCount, int totalItemCount) {
             if (mActivityScrollListener != null) {
                 mActivityScrollListener.onListFragmentScroll(firstVisibleItem, visibleItemCount,
-                    totalItemCount);
+                        totalItemCount);
             }
         }
 
@@ -227,7 +226,7 @@ public class SpeedDialFragment extends Fragment implements OnItemClickListener,
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         Trace.beginSection(TAG + " onCreateView");
         mParentView = inflater.inflate(R.layout.speed_dial_fragment, container, false);
 
@@ -327,7 +326,7 @@ public class SpeedDialFragment extends Fragment implements OnItemClickListener,
 
     /**
      * {@inheritDoc}
-     *
+     * <p>
      * This is only effective for elements provided by {@link #mContactTileAdapter}.
      * {@link #mContactTileAdapter} has its own logic for click events.
      */
@@ -484,8 +483,8 @@ public class SpeedDialFragment extends Fragment implements OnItemClickListener,
         }
 
         if (!PermissionsUtil.hasPermission(activity, READ_CONTACTS)) {
-          FragmentCompat.requestPermissions(this, new String[] {READ_CONTACTS},
-              READ_CONTACTS_PERMISSION_REQUEST_CODE);
+            FragmentCompat.requestPermissions(this, new String[]{READ_CONTACTS},
+                    READ_CONTACTS_PERMISSION_REQUEST_CODE);
         } else {
             // Switch tabs
             ((HostInterface) activity).showAllContactsTab();
@@ -494,7 +493,7 @@ public class SpeedDialFragment extends Fragment implements OnItemClickListener,
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            int[] grantResults) {
+                                           int[] grantResults) {
         if (requestCode == READ_CONTACTS_PERMISSION_REQUEST_CODE) {
             if (grantResults.length == 1 && PackageManager.PERMISSION_GRANTED == grantResults[0]) {
                 PermissionsUtil.notifyPermissionGranted(getActivity(), READ_CONTACTS);

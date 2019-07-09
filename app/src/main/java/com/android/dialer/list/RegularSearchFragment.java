@@ -15,27 +15,22 @@
  */
 package com.android.dialer.list;
 
-import static android.Manifest.permission.READ_CONTACTS;
-
 import android.app.Activity;
 import android.content.pm.PackageManager;
-import android.support.v13.app.FragmentCompat;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
+import androidx.legacy.app.FragmentCompat;
 import com.android.contacts.common.list.ContactEntryListAdapter;
 import com.android.contacts.common.list.PinnedHeaderListView;
 import com.android.contacts.common.util.PermissionsUtil;
-import com.android.contacts.commonbind.analytics.AnalyticsUtil;
-import com.android.dialerbind.ObjectFactory;
-import com.android.incallui.Call.LogState;
-
 import com.android.dialer.R;
-import com.android.dialer.logging.Logger;
-import com.android.dialer.logging.ScreenEvent;
 import com.android.dialer.service.CachedNumberLookupService;
 import com.android.dialer.widget.EmptyContentView;
 import com.android.dialer.widget.EmptyContentView.OnEmptyViewActionButtonClickedListener;
+import com.android.dialerbind.ObjectFactory;
+import com.android.incallui.Call.LogState;
+
+import static android.Manifest.permission.READ_CONTACTS;
 
 public class RegularSearchFragment extends SearchFragment
         implements OnEmptyViewActionButtonClickedListener,
@@ -46,7 +41,7 @@ public class RegularSearchFragment extends SearchFragment
     private static final int SEARCH_DIRECTORY_RESULT_LIMIT = 5;
 
     private static final CachedNumberLookupService mCachedNumberLookupService =
-        ObjectFactory.newCachedNumberLookupService();
+            ObjectFactory.newCachedNumberLookupService();
 
     public interface CapabilityChecker {
         public boolean isNearbyPlacesSearchEnabled();
@@ -82,7 +77,7 @@ public class RegularSearchFragment extends SearchFragment
     protected void cacheContactInfo(int position) {
         if (mCachedNumberLookupService != null) {
             final RegularSearchListAdapter adapter =
-                (RegularSearchListAdapter) getAdapter();
+                    (RegularSearchListAdapter) getAdapter();
             mCachedNumberLookupService.addContact(getContext(),
                     adapter.getContactInfo(mCachedNumberLookupService, position));
         }
@@ -126,14 +121,14 @@ public class RegularSearchFragment extends SearchFragment
         }
 
         if (READ_CONTACTS.equals(mPermissionToRequest)) {
-          FragmentCompat.requestPermissions(this, new String[] {mPermissionToRequest},
-              PERMISSION_REQUEST_CODE);
+            FragmentCompat.requestPermissions(this, new String[]{mPermissionToRequest},
+                    PERMISSION_REQUEST_CODE);
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            int[] grantResults) {
+                                           int[] grantResults) {
         if (requestCode == PERMISSION_REQUEST_CODE) {
             setupEmptyView();
             if (grantResults != null && grantResults.length == 1

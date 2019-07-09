@@ -45,12 +45,11 @@
             android:elevation="@dimen/tab_elevation"
             style="@style/DialtactsActionBarTabTextStyle" />
 
-        <androidx.core.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/lists_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
-
     </LinearLayout>
 
     <!-- Sets android:importantForAccessibility="no" to avoid being announced when navigating with

@@ -15,8 +15,6 @@
  */
 package com.android.dialer.filterednumber;
 
-import com.google.common.base.MoreObjects;
-
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.Context;
@@ -25,15 +23,14 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.core.app.ActivityCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import com.android.contacts.common.lettertiles.LetterTileDrawable;
 import com.android.contacts.common.testing.NeededForTesting;
 import com.android.dialer.R;
@@ -43,6 +40,7 @@ import com.android.dialer.filterednumber.BlockedNumbersMigrator.Listener;
 import com.android.dialer.filterednumber.FilteredNumbersUtil.CheckForSendToVoicemailContactListener;
 import com.android.dialer.filterednumber.FilteredNumbersUtil.ImportSendToVoicemailContactsListener;
 import com.android.dialer.voicemail.VisualVoicemailEnabledChecker;
+import com.google.common.base.MoreObjects;
 
 public class BlockedNumbersFragment extends ListFragment
         implements LoaderManager.LoaderCallbacks<Cursor>, View.OnClickListener,
@@ -99,8 +97,8 @@ public class BlockedNumbersFragment extends ListFragment
         getListView().findViewById(R.id.add_number_linear_layout).setOnClickListener(this);
 
         footerText = (TextView) getActivity().findViewById(
-            R.id.blocked_number_footer_textview);
-        mVoicemailEnabledChecker = new VisualVoicemailEnabledChecker(getContext(),this);
+                R.id.blocked_number_footer_textview);
+        mVoicemailEnabledChecker = new VisualVoicemailEnabledChecker(getContext(), this);
         mVoicemailEnabledChecker.asyncUpdate();
         updateActiveVoicemailProvider();
     }
@@ -177,10 +175,10 @@ public class BlockedNumbersFragment extends ListFragment
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         final String[] projection = {
-            FilteredNumberContract.FilteredNumberColumns._ID,
-            FilteredNumberContract.FilteredNumberColumns.COUNTRY_ISO,
-            FilteredNumberContract.FilteredNumberColumns.NUMBER,
-            FilteredNumberContract.FilteredNumberColumns.NORMALIZED_NUMBER
+                FilteredNumberContract.FilteredNumberColumns._ID,
+                FilteredNumberContract.FilteredNumberColumns.COUNTRY_ISO,
+                FilteredNumberContract.FilteredNumberColumns.NUMBER,
+                FilteredNumberContract.FilteredNumberColumns.NORMALIZED_NUMBER
         };
         final String selection = FilteredNumberContract.FilteredNumberColumns.TYPE
                 + "=" + FilteredNumberContract.FilteredNumberTypes.BLOCKED_NUMBER;
@@ -228,25 +226,25 @@ public class BlockedNumbersFragment extends ListFragment
         } else if (resId == R.id.migrate_promo_allow_button) {
             view.setEnabled(false);
             MoreObjects.firstNonNull(blockedNumbersMigratorForTest,
-                new BlockedNumbersMigrator(getContext().getContentResolver()))
-                .migrate(new Listener() {
-                    @Override
-                    public void onComplete() {
-                        getContext().startActivity(
-                            FilteredNumberCompat.createManageBlockedNumbersIntent(getContext()));
-                        // Remove this activity from the backstack
-                        activity.finish();
-                }
-            });
+                    new BlockedNumbersMigrator(getContext().getContentResolver()))
+                    .migrate(new Listener() {
+                        @Override
+                        public void onComplete() {
+                            getContext().startActivity(
+                                    FilteredNumberCompat.createManageBlockedNumbersIntent(getContext()));
+                            // Remove this activity from the backstack
+                            activity.finish();
+                        }
+                    });
         }
     }
 
     @Override
-    public void onVisualVoicemailEnabledStatusChanged(boolean newStatus){
+    public void onVisualVoicemailEnabledStatusChanged(boolean newStatus) {
         updateActiveVoicemailProvider();
     }
 
-    private void updateActiveVoicemailProvider(){
+    private void updateActiveVoicemailProvider() {
         if (getActivity() == null || getActivity().isFinishing()) {
             return;
         }

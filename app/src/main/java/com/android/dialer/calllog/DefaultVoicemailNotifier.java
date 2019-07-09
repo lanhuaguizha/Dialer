@@ -16,6 +16,7 @@
 
 package com.android.dialer.calllog;
 
+import androidx.annotation.Nullable;
 import com.google.common.collect.Maps;
 
 import android.app.Notification;
@@ -28,7 +29,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
-import android.support.annotation.Nullable;
 import androidx.core.util.Pair;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
