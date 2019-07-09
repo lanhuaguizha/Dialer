@@ -585,7 +585,7 @@ public class DialerDatabaseHelper extends SQLiteOpenHelper {
             if (DEBUG) {
                 Log.v(TAG, "Updating database");
             }
-            updateSmartDialDatabase();
+//            updateSmartDialDatabase();
             return null;
         }
 

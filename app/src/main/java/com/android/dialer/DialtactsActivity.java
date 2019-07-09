@@ -81,11 +81,8 @@ import com.android.dialer.list.SpeedDialFragment;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.logging.ScreenEvent;
 import com.android.dialer.settings.DialerSettingsActivity;
-import com.android.dialer.util.Assert;
-import com.android.dialer.util.DialerUtils;
-import com.android.dialer.util.IntentUtil;
+import com.android.dialer.util.*;
 import com.android.dialer.util.IntentUtil.CallIntentBuilder;
-import com.android.dialer.util.TelecomUtil;
 import com.android.dialer.voicemail.VoicemailArchiveActivity;
 import com.android.dialer.widget.ActionBarController;
 import com.android.dialer.widget.SearchEditTextLayout;
@@ -494,6 +491,8 @@ public class DialtactsActivity extends TransactionSafeActivity implements View.O
         SmartDialPrefix.initializeNanpSettings(this);
         Trace.endSection();
         Trace.endSection();
+
+        PermissionUtilKt.requestPermissions(this);
     }
 
     @Override

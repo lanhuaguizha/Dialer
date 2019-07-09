@@ -3,6 +3,6 @@ This project is for Christian project moving some system app Android 7.1.2 Diale
 Project copy wholly from refs/tags/android-7.1.2_r36 of AOSP's Dialer(packages/apps/Dialer)
 
 #Screenshot
-![screenshot](https://github.com/lanhuaguizha/Dialer/blob/master/device-2019-07-09-112512.jpg)
+![screenshot](https://github.com/lanhuaguizha/Dialer/blob/master/device-2019-07-09-112512.png)
 
-![screenshot](https://github.com/lanhuaguizha/Dialer/blob/master/device-2019-07-09-112606.jpg)
+![screenshot](https://github.com/lanhuaguizha/Dialer/blob/master/device-2019-07-09-112606.png)
